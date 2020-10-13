@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fjd.order.mapper.SalesOrderMapper">
+    <select id="selectSalesOrderById" resultType="com.fjd.order.model.SalesOrder" parameterType="string">
+        select * from sales_order where id = #{id};
+    </select>
+    <select id="selectSalesOrders" resultType="com.fjd.order.model.SalesOrder">
+<!--            resultType="java.util.List">-->
+        select * from sales_order;
+    </select>
+</mapper>

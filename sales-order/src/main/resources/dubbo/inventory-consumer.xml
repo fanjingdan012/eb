@@ -1,0 +1,20 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <description>Dubbo Consumer 配置</description>
+
+    <!--  id为接口的名字在程序种应用时可以通过@Resource注解实例化。 
+          interface为引用的接口的类的全路径。 
+          registry 为仓库的地址的id
+          check 为spring初始化时是否检查服务是否可用
+    -->
+    <dubbo:reference id="inventoryService"
+                     interface="com.fjd.InventoryService"
+                     registry="multicast://224.5.6.7:1234"
+                     timeout="60000"
+                     url="dubbo://localhost:20880"
+                     check="false"/>
+
+</beans>
